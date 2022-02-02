@@ -43,5 +43,3 @@ repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvolupta
 
 Всего в файле должно оказаться 10 постов.
 
-Документация к api: https://jsonplaceholder.typicode.com/ 
-Метод получения поста по id: https://jsonplaceholder.typicode.com/posts/1 
