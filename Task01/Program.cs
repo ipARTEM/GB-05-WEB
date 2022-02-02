@@ -33,7 +33,7 @@ namespace Task01
 
             for (int i = min; i <= max; i++)
             {
-                var response= await  client.GetAsync("https://jsonplaceholder.typicode.com/posts/"+i.ToString());
+                var response= await  client.GetAsync(url+i.ToString());
                 response.EnsureSuccessStatusCode();
 
                 responseBody += "\n";
@@ -49,6 +49,5 @@ namespace Task01
                 Console.WriteLine("Текст записан в файл 'result.txt'");
             }
         }
-
     }
 }
