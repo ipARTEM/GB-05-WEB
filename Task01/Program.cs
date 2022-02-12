@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
@@ -15,6 +16,8 @@ namespace Task01
             try
             {
                 await PostPars(@"https://jsonplaceholder.typicode.com/posts/",4,13);
+
+               
             }
             catch (Exception ex)
             {
@@ -27,20 +30,21 @@ namespace Task01
             }
         }
 
-        static async Task PostPars(string url,int min, int max )
+        static async Task PostPars(string url, int min, int max)
         {
-            string responseBody="";
+            string responseBody = "";
 
             for (int i = min; i <= max; i++)
             {
-                var response= await  client.GetAsync(url+i.ToString());
+                var response = await client.GetAsync(url + i.ToString());
                 response.EnsureSuccessStatusCode();
 
                 responseBody += "\n";
                 responseBody += "\n";
-                responseBody += await  response.Content.ReadAsStringAsync();
+                responseBody += await response.Content.ReadAsStringAsync();
             }
-                Console.WriteLine(responseBody);
+
+            Console.WriteLine(responseBody);
 
             using (FileStream fs = new FileStream($"result.txt", FileMode.OpenOrCreate))
             {
@@ -49,5 +53,10 @@ namespace Task01
                 Console.WriteLine("Текст записан в файл 'result.txt'");
             }
         }
+
+
+
+
     }
+
 }
